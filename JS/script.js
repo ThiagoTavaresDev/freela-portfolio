@@ -1,0 +1,76 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.fade-in');
+
+    function checkVisibility() {
+        elements.forEach((element) => {
+            const rect = element.getBoundingClientRect();
+            console.log('rect top'+ rect.top)
+            console.log('rect bottom'+ rect.bottom)
+            console.log(window.innerHeight)
+            const isVisible = (rect.top <= window.innerHeight - 80 && rect.bottom >= 0);
+            
+            if (isVisible) {
+                element.classList.add('visible');
+            }
+        });
+    }
+
+    // Verifique a visibilidade inicial
+    checkVisibility();
+
+    // Adicione um ouvinte de rolagem
+    window.addEventListener('scroll', checkVisibility);
+});
+
+
+const menuLinks = document.querySelectorAll('#menu-nav #menu-ul li a[href^="#"]');
+
+console.log(menuLinks)
+
+function getDistanceFromTheTop(element) {
+  const id = element.getAttribute("href");
+  return document.querySelector(id).offsetTop;
+}
+
+function nativeScroll(distanceFromTheTop) {
+  window.scroll({
+    top: distanceFromTheTop,
+    behavior: "smooth",
+  });
+ }
+
+function scrollToSection(event) {
+  event.preventDefault();
+  const distanceFromTheTop = getDistanceFromTheTop(event.target) - 90;
+  smoothScrollTo(0, distanceFromTheTop);
+}
+
+menuLinks.forEach((link) => {
+  link.addEventListener("click", scrollToSection);
+});
+
+function smoothScrollTo(endX, endY, duration) {
+    const startX = window.scrollX || window.pageXOffset;
+    const startY = window.scrollY || window.pageYOffset;
+    const distanceX = endX - startX;
+    const distanceY = endY - startY;
+    const startTime = new Date().getTime();
+  
+    duration = typeof duration !== "undefined" ? duration : 400;
+  
+    const easeInOutQuart = (time, from, distance, duration) => {
+      if ((time /= duration / 2) < 1)
+        return (distance / 2) * time * time * time * time + from;
+      return (-distance / 2) * ((time -= 2) * time * time * time - 2) + from;
+    };
+  
+    const timer = setInterval(() => {
+      const time = new Date().getTime() - startTime;
+      const newX = easeInOutQuart(time, startX, distanceX, duration);
+      const newY = easeInOutQuart(time, startY, distanceY, duration);
+      if (time >= duration) {
+        clearInterval(timer);
+      }
+      window.scroll(newX, newY);
+    }, 1000 / 60);
+  }

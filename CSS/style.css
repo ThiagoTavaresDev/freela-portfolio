@@ -1,0 +1,441 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Opcional: adicione um efeito de deslizamento para cima */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  background-color: #272829;
+  height: 100vh;
+  font-family: "Poppins", "sans-serif";
+
+}
+
+#cabecalho {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 12px;
+  background-color: #272829;
+  border-bottom: 1px solid #70798c;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  z-index: 100;
+}
+#logo{
+    width: 276px;
+    height: 62px;
+    padding-top: 6px;
+    transition: all 0.3s linear;
+}
+#logo:hover{
+    transition: all 0.7s ease-in-out;
+    transform: scale(1.04);
+
+}
+
+#wrapper-image {
+  position: relative;
+  width: 100%;
+  height: 800px; /* Defina a altura desejada */
+}
+
+#wrapper-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -100;
+  filter: blur(6px) grayscale(100%) brightness(55%);
+
+}
+#overlay-opening{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1.8rem;
+    border-bottom: 2px solid #70798c;
+}
+#overlay-opening h1{
+    font-family: "PT Serif",serif;
+    color:rgb(199, 218, 255);
+    font-size: 4.4rem;
+    font-weight: 100;
+
+}
+#overlay-opening h1:hover{
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+#overlay-opening-content{
+    text-align: center;
+    background-color: #2728292b;
+    padding: 2rem;
+    border-top: 1px solid #70798c;
+    border-radius: 2px;
+    box-shadow: 1px 1px 6px rgba(39, 40, 41, 0.5);
+}
+
+#wrapper-image #overlay-opening #btn-contato {
+  font-size: 1.5rem;
+  border: 1px solid #70798c;
+  border-radius: 4px;
+  background-color: #2728292b;
+  color: #ffffff;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease-in-out;
+  margin-right: 1.2rem;
+  font-family: 'PT Serif', serif;
+}
+#icone-balanca{
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 2rem;
+    color: #d8d9da;
+}
+#icone-bussines{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 2rem;
+    color: #d8d9da;
+
+}
+#icone-martelo{
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 2rem;
+    color: #70798c;
+
+}
+
+#consultoria{
+    margin-bottom: 1.2rem;
+}
+#wrapper-image #overlay-opening #btn-contato:hover{
+    background-color: #272829; 
+    color: rgb(199, 218, 255) ;
+    transition: all 0.5s ease-in-out;
+
+}
+#menu-ul {
+  display: flex;
+  list-style-type: none;
+  gap: 60px;
+ 
+}
+#menu-ul a{
+    text-decoration: none;  
+    color: white;
+    border: 1px solid transparent;
+  }
+  #menu-ul a:hover{
+    border-bottom: 1px solid #d8d9da;
+    transition: all 0.3s ease-in-out;
+  }
+
+
+#section-sobre{
+    height: 1100px;
+    width: 100%;
+    background-color: #d6d8da;
+
+}
+#container-section-sobre{
+    padding-top: 2.5rem;
+    text-align: center;
+
+}
+#sobre-titulo{
+
+    font-size: 3.8rem;
+    font-family: 'PT Serif', serif;
+    font-weight: 100;
+    color:  #6C757D;
+    display: inline;
+    border-bottom: 1px solid #70798c;
+}
+#container-section-sobre-imagens{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3.5rem;
+    margin-bottom: 400px;
+    
+}
+#container-section-sobre-imagens img{
+    z-index: 1;
+    display: block;
+    width: 400px;
+    height: 400px;
+    filter: grayscale(16%) brightness(100%);
+    border: 2px solid #70798c;
+    border-radius: 2px;
+    box-shadow: 12px 12px 50px #70798c;
+    transition: all 0.3s linear;
+}
+#container-section-sobre-imagens img:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.02);
+    filter: grayscale(5%) brightness(100%);
+}
+
+#container-section-sobre-conteudo{
+margin: 0px auto 0px auto;
+width: 50%;
+padding-top: 2.5rem;
+}
+#container-section-sobre-conteudo p{
+    text-align: justify;
+    font-size: 1.05rem;
+    font-family: 'Poppins',sans-serif;
+    color: #272829;
+    border-left: 2px solid #70798c;
+    padding: 1rem;
+}
+#section-servicos{
+    height: 800px;
+    width: 100%;
+    background-color: #272829;
+    text-align: center;
+    border-top: 2px solid #70798c;
+    border-bottom: 2px solid #70798c;
+}
+#container-section-servicos{
+    padding-top: 2.5rem;
+}
+#section-servicos #titulo-servicos{
+    text-align: center;
+    font-size: 3.8rem;
+    font-family: 'PT Serif', serif;
+    font-weight: 100;
+    color: #d8d9da;
+    display: inline;
+    border-bottom: 1px solid #70798c;
+ 
+}
+#container-exterior-cards-servicos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2.5rem;
+}
+
+#container-cards-servicos{
+    display: flex;
+    gap: 20px;
+    padding: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+.card{
+ 
+    width: 348px;
+    height: 250px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+    background-color: #70798c;
+    color:#d6d8da;
+
+    opacity: 0.7;
+    transition: all 0.2s linear;
+}
+.card h1{
+    font-size: 2.2rem;
+    font-family: 'PT Serif', serif;
+    font-weight: 100;
+}
+.card:hover{
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid #fff;
+    transform: translateY(-10px);
+
+}
+
+#section-contatos{
+    height: 800px;
+    background-image: url(../assets/alvaro-serrano-hjwKMkehBco-unsplash.jpg);
+    background-size: cover;
+ 
+
+}
+
+#container-section-contatos{
+    padding-top: 2.5rem;
+    text-align: center;
+}
+
+#contatos-titulo{
+    font-family: 'PT Serif', serif;
+    font-size: 3.8rem;
+    font-weight: 100;
+    color: #fff;
+    display: inline;
+    border-bottom: 1px solid #70798c;
+    
+}
+#container-section-contatos-conteudo{
+    display: flex;
+    margin: 0px auto;
+    width: 50%;
+    justify-content: space-around;
+    padding: 1.25rem;
+    background-color: rgba(39, 40, 41, 0.5);
+    color: #fff;
+    margin-top: 2.5rem;
+    gap: 2rem;
+    font-size: 1.25rem;
+    backdrop-filter: blur(8px);
+    border-radius: 4px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+}
+#container-textos-contato p{
+   padding-top: 1rem;
+
+}
+#container-section-contatos-form form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+#container-section-contatos-form input{
+    background-color: #70798ccf;
+    border: 0px;
+    padding: 0.8rem;
+    font-size: 1.25rem;
+    color: #d6d8da;
+    border-radius: 2px;
+    outline: none;
+    font-family: 'Poppins',sans-serif;
+}
+#container-section-contatos-form input::placeholder{
+    color: #d6d8da5c;
+}
+
+#container-section-contatos-form textarea{
+    background-color: #70798ccf;
+    border: 0px;
+    font-size: 1.25rem;
+    color: #d6d8da;
+    border-radius: 2px;
+    padding: 0.8rem;
+    outline: none;
+    font-family: 'Poppins',sans-serif;
+}
+#container-section-contatos-form textarea::placeholder{
+    color: #d6d8da5c;
+}
+
+#container-section-contatos-form button{
+   background-color: #272829;
+    padding: 12px;
+    border: 1px;
+    
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 1.25rem;
+    color: #d6d8da;
+    cursor: pointer;
+    opacity: 0.8;
+    font-family: 'Poppins',sans-serif;
+}
+#container-section-contatos-form button:hover{
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+ }
+
+#container-section-contatos-redes{
+    display: flex;
+    gap: 1rem;
+    margin-top: 16rem;
+    cursor: pointer;
+}
+#container-section-contatos-redes:hover{
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-2px);
+}
+#obrigado{
+    padding-top: 6.5rem;
+    text-align: center;
+    font-size: 2.25rem;
+    color: #fff;
+    font-family: 'POPPINS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#obrigado img{
+    padding-top: 20px;
+    width: 300px;
+    height: 100px;
+}
+#obrigado button{
+    padding: 8px 16px;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    background-color: #272829;
+    border: 1px solid #d78f37;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+#obrigado button:hover{
+    background-color: #d78f37;
+    border: 1px solid #272829;
+    transition: all 0.5s ease-in-out;
+
+}
+#obrigado button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;             
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #70798c;    
+    border-radius: 2px;      
+  }
+#footer{
+    height: 4rem;
+    background-color: #191a1a;
+    color: #d8d9da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid #70798c;
+}
+
